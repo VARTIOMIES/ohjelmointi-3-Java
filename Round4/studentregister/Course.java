@@ -7,14 +7,31 @@
  *
  * @author Onni Merilä
  */
-public class Course 
 
-    .java {
+//package student.stuff;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        // TODO code application logic here
+public class Course {
+    private String courseCode;
+    private String courseName;
+    private int courseCredits;
+    
+    //Constructor
+    Course(String code , String name , int credits){
+        courseCode = code;
+        courseName = name;
+        courseCredits = credits;
     }
+    
+    // Getter memberfunctions
+    public String getCode(){
+        return courseCode;
+    }
+    public String getName(){
+        return courseName;
+    }
+    public int getCredits(){
+        return courseCredits;
+    }
+    
+   
 }

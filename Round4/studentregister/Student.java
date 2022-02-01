@@ -7,14 +7,27 @@
  *
  * @author Onni Merilä
  */
-public class Student 
 
-    .java {
+//ackage student.stuff;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        // TODO code application logic here
+public class Student {
+    private String studentName;
+    private String studentNumberStr;
+    
+    //Constructor
+    public Student(String name, String studentNumber){
+        studentName = name;
+        studentNumberStr = studentNumber;
     }
+    
+    // Getter memberfunctions
+    public String getName(){
+        return studentName;
+    }
+    
+    public String getStudentNumber(){
+        return studentNumberStr;
+    }
+    
+
 }

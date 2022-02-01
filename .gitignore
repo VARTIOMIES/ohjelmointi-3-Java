@@ -1,3 +1,7 @@
 .idea/
 bvonme.iml
 *.class
+/nbproject/private/
+*build.xml
+*.mf
+nbproject/

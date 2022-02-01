@@ -5,16 +5,34 @@
 
 /**
  *
- * @author Onni Merilä
+ * @author Onni MerilÃ¤
  */
-public class Attainment 
 
-    .java {
+//package student.stuff;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        // TODO code application logic here
+public class Attainment{
+    private String courseCode;
+    private String studentNumber;
+    private int grade;
+    
+    Attainment(String courseCode, String studentNumber, int grade){
+        this.courseCode = courseCode;
+        this.studentNumber = studentNumber;
+        this.grade = grade;
     }
+    
+    //Getter memberfunctions
+    public String getCourseCode(){
+        return courseCode;
+    }
+    public String getStudentNumber(){
+        return studentNumber;
+    }
+    public int getGrade(){
+        return grade;
+    }
+    
+    
+
+    
 }
