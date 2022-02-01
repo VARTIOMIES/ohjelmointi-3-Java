@@ -8,8 +8,6 @@
  * @author Onni Merila
  */
 
-//package student.stuff;
-
 public class Course {
     private String courseCode;
     private String courseName;

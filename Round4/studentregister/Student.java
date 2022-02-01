@@ -8,8 +8,6 @@
  * @author Onni Merila
  */
 
-//ackage student.stuff;
-
 public class Student {
     private String studentName;
     private String studentNumberStr;
