@@ -16,7 +16,7 @@ public class Course {
     private int courseCredits;
     
     //Constructor
-    Course(String code , String name , int credits){
+    public Course(String code , String name , int credits){
         courseCode = code;
         courseName = name;
         courseCredits = credits;
