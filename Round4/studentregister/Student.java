@@ -5,7 +5,7 @@
 
 /**
  *
- * @author Onni Merilä
+ * @author Onni Merila
  */
 
 //ackage student.stuff;
