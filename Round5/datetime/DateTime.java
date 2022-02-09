@@ -39,6 +39,6 @@ public class DateTime extends Date{
     @Override
     public String toString(){
         String temp = super.toString();
-        return String.format(temp + " %2d:%2d:%2d",hour,minute,second);
+        return String.format(temp + " %02d:%02d:%02d",hour,minute,second);
     }
 }
