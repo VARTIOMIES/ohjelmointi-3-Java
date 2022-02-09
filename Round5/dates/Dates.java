@@ -12,7 +12,6 @@ import java.time.DateTimeException;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.util.ArrayList;
-import java.time.format.ResolverStyle;
 
 public class Dates {
     
@@ -75,7 +74,7 @@ public class Dates {
         private String end;
         private int diff;
         
-        public DateDiff(String start, String end){
+        private DateDiff(String start, String end){
             
             this.start = start;
             this.end = end;
