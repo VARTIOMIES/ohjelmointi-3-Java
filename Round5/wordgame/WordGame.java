@@ -73,6 +73,7 @@ public class WordGame {
             gameState.mistakes++;
             if (gameState.mistakes > gameState.mistakeLimit){
                 isGameActive = false;
+                gameState.word = allWords.get(wordIndex % allWords.size());
             }
         }
         return gameState;
