@@ -64,6 +64,7 @@ public class WordGame {
         if (!isGameActive){
             throw new GameStateException("There is currently no active word game!");
         }
+        // End game if playaer has WON!
         if (word.equalsIgnoreCase(allWords.get(wordIndex % allWords.size()))){
             gameState.word = word.toLowerCase();
             gameState.missingChars = 0;
@@ -71,6 +72,7 @@ public class WordGame {
         }
         else {
             gameState.mistakes++;
+            // End game if mistakelimit has been reached
             if (gameState.mistakes > gameState.mistakeLimit){
                 isGameActive = false;
                 gameState.word = allWords.get(wordIndex % allWords.size());
@@ -89,6 +91,7 @@ public class WordGame {
             // End game if mistakelimit has been reached
             if (gameState.mistakes > gameState.mistakeLimit){
                 isGameActive = false;
+                gameState.word = allWords.get(wordIndex % allWords.size());
             }
         }
         else {
