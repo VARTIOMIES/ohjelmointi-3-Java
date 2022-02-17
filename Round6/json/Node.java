@@ -90,7 +90,10 @@ public abstract class Node {
           sb.append("  ".repeat(depth));
       }
       sb.append("}");
-      sb.deleteCharAt(sb.lastIndexOf(","));
+      if (objNode.size() != 0){
+          sb.deleteCharAt(sb.lastIndexOf(","));
+      }
+      
       
       
     }// ARRAY
