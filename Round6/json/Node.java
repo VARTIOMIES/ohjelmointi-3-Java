@@ -112,7 +112,10 @@ public abstract class Node {
           sb.append("  ".repeat(depth));
       }
       sb.append("]");
-      sb.deleteCharAt(sb.lastIndexOf(","));
+      if (arrNode.size() != 0){
+          sb.deleteCharAt(sb.lastIndexOf(","));
+      }
+      
     }//VALUES
     else if(node.isValue()) {
       ValueNode valNode = (ValueNode) node;
