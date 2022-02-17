@@ -18,7 +18,12 @@ public abstract class Node {
   }
 
   public void printJson() {
-    throw new UnsupportedOperationException("printJson has not been implemented!");
+    //throw new UnsupportedOperationException("printJson has not been implemented!");
+    
+    StringBuilder sb = new StringBuilder();
+    printJson(this,sb,0);
+    System.out.print(sb.toString());
+    
   }
 
   private static final String NL = System.lineSeparator();
@@ -64,6 +69,59 @@ public abstract class Node {
         valStr = "\"" + valNode.getString() + "\"";
       }
       sb.append(String.format("%s(%s)%n", typeStr, valStr));
+    }
+  }
+  
+  private void printJson(Node node,StringBuilder sb,int depth){
+    if(node.isObject()) {
+      sb.append("{").append(NL);
+      ObjectNode objNode = (ObjectNode) node;
+      
+      for(String name : objNode) {
+        sb.append("  ".repeat(depth+1));
+        sb.append(String.format("\"%s\"",name)).append(": ");
+        
+        printJson(objNode.get(name),sb,depth+1);
+        sb.append(",").append(NL);
+      }
+      sb.append("  ".repeat(depth));
+      sb.append("}");
+      sb.deleteCharAt(sb.lastIndexOf(","));
+      
+      
+    }// ARRAY
+    else if(node.isArray()) {
+      sb.append("[");
+      ArrayNode arrNode = (ArrayNode) node;
+      if (arrNode.size() != 0){
+          sb.append(NL);
+      }
+      for(Node aNode : arrNode) {
+        sb.append("  ".repeat(depth+1));
+        printJson(aNode, sb,depth+1);
+        sb.append(",").append(NL);
+      }
+      sb.append("  ".repeat(depth));
+      sb.append("]");
+      sb.deleteCharAt(sb.lastIndexOf(","));
+    }//VALUES
+    else if(node.isValue()) {
+      ValueNode valNode = (ValueNode) node;
+      String typeStr = "NullValue";
+      String valStr = "null";
+      if(valNode.isNumber()) {
+        typeStr = "NumberValue";
+        valStr = numberToString(valNode.getNumber());
+      }
+      else if(valNode.isBoolean()) {
+        typeStr = "BooleanValue";
+        valStr = Boolean.toString(valNode.getBoolean());
+      }
+      else if(valNode.isString()) {
+        typeStr = "StringValue";
+        valStr = "\"" + valNode.getString() + "\"";
+      }
+      sb.append(String.format("%s",valStr));
     }
   }
 }
