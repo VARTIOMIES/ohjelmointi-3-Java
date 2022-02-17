@@ -18,8 +18,6 @@ public abstract class Node {
   }
 
   public void printJson() {
-    //throw new UnsupportedOperationException("printJson has not been implemented!");
-    
     StringBuilder sb = new StringBuilder();
     printJson(this,sb,0);
     System.out.print(sb.toString());
@@ -74,9 +72,13 @@ public abstract class Node {
   
   private void printJson(Node node,StringBuilder sb,int depth){
     if(node.isObject()) {
-      sb.append("{").append(NL);
-      ObjectNode objNode = (ObjectNode) node;
+      sb.append("{");
       
+              
+      ObjectNode objNode = (ObjectNode) node;
+      if (objNode.size() != 0){
+          sb.append(NL);
+      }
       for(String name : objNode) {
         sb.append("  ".repeat(depth+1));
         sb.append(String.format("\"%s\"",name)).append(": ");
@@ -84,7 +86,9 @@ public abstract class Node {
         printJson(objNode.get(name),sb,depth+1);
         sb.append(",").append(NL);
       }
-      sb.append("  ".repeat(depth));
+      if (objNode.size() != 0){
+          sb.append("  ".repeat(depth));
+      }
       sb.append("}");
       sb.deleteCharAt(sb.lastIndexOf(","));
       
@@ -101,24 +105,26 @@ public abstract class Node {
         printJson(aNode, sb,depth+1);
         sb.append(",").append(NL);
       }
-      sb.append("  ".repeat(depth));
+      if (arrNode.size() != 0){
+          sb.append("  ".repeat(depth));
+      }
       sb.append("]");
       sb.deleteCharAt(sb.lastIndexOf(","));
     }//VALUES
     else if(node.isValue()) {
       ValueNode valNode = (ValueNode) node;
-      String typeStr = "NullValue";
+      
       String valStr = "null";
       if(valNode.isNumber()) {
-        typeStr = "NumberValue";
+        
         valStr = numberToString(valNode.getNumber());
       }
       else if(valNode.isBoolean()) {
-        typeStr = "BooleanValue";
+        
         valStr = Boolean.toString(valNode.getBoolean());
       }
       else if(valNode.isString()) {
-        typeStr = "StringValue";
+        
         valStr = "\"" + valNode.getString() + "\"";
       }
       sb.append(String.format("%s",valStr));
