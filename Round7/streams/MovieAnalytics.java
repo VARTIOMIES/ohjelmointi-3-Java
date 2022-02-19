@@ -18,7 +18,7 @@ public class MovieAnalytics {
     private static class PrintMovie implements Consumer<Movie>{
         @Override
         public void accept(Movie movie){
-            System.out.print(String.format("%s (%s, %d)%n",movie.getTitle(),
+            System.out.print(String.format("%s (By %s, %d)%n",movie.getTitle(),
                     movie.getDirector(), movie.getReleaseYear()));
         }
     }
