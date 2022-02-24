@@ -44,7 +44,7 @@ public class NdArray<E> extends AbstractCollection<E>{
         for (Integer a : i){
             if (a<0){
                 throw new NegativeArraySizeException(
-                        String.format("Illegal dimension size %d",a));
+                        String.format("Illegal dimension size %d.",a));
                 
             }
         }
