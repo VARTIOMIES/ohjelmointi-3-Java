@@ -23,8 +23,6 @@ public class NdArray<E> extends AbstractCollection<E>{
         // Then create the arrays
         dimLens = new Integer[1+furtherDimLens.length];
         dimLens[0] = firstDimLen;
-        // Testiprinttaus
-        System.out.println(Integer.toString(dimLens.length));
         
         for (int i = 1;i<dimLens.length;i++){
             dimLens[i] = furtherDimLens[i-1];
