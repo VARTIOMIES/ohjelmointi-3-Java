@@ -10,9 +10,12 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
 
 import java.io.File;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
@@ -104,6 +107,43 @@ public class CountryData {
         }
 
         return countryDataPoint;
+
+    }
+
+    public static void writeToXml(List<Country> countries, String countryFile)
+            throws IOException {
+
+        // Create the Element tree
+        Element countriesElement = new Element("countries");
+        for (Country country : countries){
+            Element name = new Element("name");
+            name.addContent(country.getName());
+
+            Element area = new Element("area");
+            area.addContent(String.format("%.0f",country.getArea()));
+
+            Element population = new Element("population");
+            population.addContent(String.format("%d",country.getPopulation()));
+
+            Element gdp = new Element("gdp");
+            gdp.addContent(String.format("%.0f",country.getGdp()));
+
+            Element countryElement = new Element("country");
+            countryElement.addContent(name);
+            countryElement.addContent(area);
+            countryElement.addContent(population);
+            countryElement.addContent(gdp);
+
+            countriesElement.addContent(countryElement);
+        }
+        // Compile element tree into a Document
+        Document countriesBuild = new Document(countriesElement);
+
+        // Crate new file and write into it
+        File writeFile = new File(countryFile);
+        FileWriter fileWriter = new FileWriter(writeFile);
+        XMLOutputter xout = new XMLOutputter(Format.getPrettyFormat());
+        xout.output(countriesBuild,fileWriter);
 
     }
 
