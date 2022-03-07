@@ -10,6 +10,7 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
+import org.jdom2.input.sax.XMLReaders;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
@@ -80,13 +81,13 @@ public class CountryData {
 
         TreeMap<String,String> countryDataPoint = new TreeMap<>();
 
-        File file = new File(filename);
-        SAXBuilder sax = new SAXBuilder();
-        Document doc = sax.build(file);
+        final SAXBuilder sax = new SAXBuilder();
+        Document doc = sax.build(filename);
 
         Element root = doc.getRootElement();
+        Element data = root.getChild("data");
 
-        List<Element> records = root.getChildren("record");
+        List<Element> records = data.getChildren("record");
 
         for (Element record : records){
             // Get all fields
