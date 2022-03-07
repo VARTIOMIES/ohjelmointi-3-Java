@@ -121,13 +121,13 @@ public class CountryData {
             name.addContent(country.getName());
 
             Element area = new Element("area");
-            area.addContent(String.format("%.0f",country.getArea()));
+            area.addContent(String.format("%.1f",country.getArea()));
 
             Element population = new Element("population");
             population.addContent(String.format("%d",country.getPopulation()));
 
             Element gdp = new Element("gdp");
-            gdp.addContent(String.format("%.0f",country.getGdp()));
+            gdp.addContent(String.format("%15.14E",country.getGdp()));
 
             Element countryElement = new Element("country");
             countryElement.addContent(name);
