@@ -11,13 +11,13 @@ public class Country implements Comparable<Country>{
     private final String name;
     private final double area;
     private final long population;
-    private final double gdb;
+    private final double gdp;
 
-    public Country(String name, double area, long population,double gdb){
+    public Country(String name, double area, long population,double gdp){
         this.name=name;
         this.area=area;
         this.population=population;
-        this.gdb=gdb;
+        this.gdp=gdp;
     }
 
 
@@ -35,14 +35,14 @@ public class Country implements Comparable<Country>{
                 "  Area: %.0f km2%n" +
                 "  Population: %d%n" +
                 "  GDP: %.0f (2015 USD)%n",
-                name,area,population,gdb);
+                name,area,population,gdp);
     }
 
     // Getter methods
     public String getName(){return name;}
     public double getArea(){return area;}
     public long getPopulation(){return population;}
-    public double getGdb(){return gdb;}
+    public double getGdp(){return gdp;}
 
 
 
