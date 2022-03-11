@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 /**
  *A class for representing a JSON array.
- * @version (javadocjson 1.0 API)
  */
 final public class ArrayNode extends Node implements Iterable<Node>{
     /**
