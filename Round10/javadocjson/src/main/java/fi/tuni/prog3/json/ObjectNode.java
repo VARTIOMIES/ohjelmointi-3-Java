@@ -46,7 +46,7 @@ final public class ObjectNode extends Node implements Iterable<String>{
     }
 
     /**
-     *Stores a name - JSON node pair into this JSON object.
+     *Stores a name - JSON node pair into this JSON object. If a name-node pair with the same name already exists, the previously existing node will be replaced.
      * @param name - the name of the name-node pair.
      * @param node - the JSON node of the name-node pair.
      */
