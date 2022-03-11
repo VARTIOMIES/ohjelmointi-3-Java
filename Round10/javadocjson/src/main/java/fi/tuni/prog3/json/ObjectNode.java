@@ -11,8 +11,9 @@ import java.util.ArrayList;
 
 /**
  *A class for representing a JSON object.
+ * @version (javadocjson 1.0 API)
  */
-public class ObjectNode extends Node implements Iterable<String>{
+final public class ObjectNode extends Node implements Iterable<String>{
     /**
      *
      */

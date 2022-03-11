@@ -6,14 +6,15 @@ package fi.tuni.prog3.json;
 
 /**
  *A class for representing a JSON value. The value can be either a double, a boolean, a String or null.
+ * @version (javadocjson 1.0 API)
  */
-public class ValueNode extends Node{
+final public class ValueNode extends Node{
 
     final private Object value;
 
     /**
      *Constructs a JSON value node that stores the given double value.
-     * @param value - The double value to store in the new JSON value node.
+     * @param value The double value to store in the new JSON value node.
      */
     public ValueNode(double value){
         this.value = value;
@@ -21,7 +22,7 @@ public class ValueNode extends Node{
 
     /**
      *Constructs a JSON value node that stores the given boolean value.
-     * @param value - The boolean value to store in the new JSON value node.
+     * @param value The boolean value to store in the new JSON value node.
      */
     public ValueNode(boolean value){
         this.value = value;
@@ -29,7 +30,7 @@ public class ValueNode extends Node{
 
     /**
      *Constructs a JSON value node that stores the given string or null.
-     * @param value - The string or null to store in the new JSON value node.
+     * @param value The string or null to store in the new JSON value node.
      */
     public ValueNode(String value){
         this.value = value;
@@ -70,32 +71,48 @@ public class ValueNode extends Node{
     /**
      *Returns the stored value as a number (double).
      * @return the stored number as a double value.
+     * @throws IllegalStateException if the stored value is not a string.
      */
     public double getNumber(){
+        if (!isNumber()){
+            throw new IllegalStateException();
+        }
         return (double) value;
     }
 
     /**
      *Returns the stored value as a boolean value.
      * @return the stored boolean value.
+     * @throws IllegalStateException if the stored value is not a boolean value.
      */
     public boolean getBoolean(){
+        if (!isBoolean()){
+            throw new IllegalStateException();
+        }
         return (boolean) value;
     }
 
     /**
      *Returns the stored value as a string.
      * @return the stored string.
+     * @throws IllegalStateException if the stored value is not a string.
      */
     public String getString(){
+        if (!isString()){
+            throw new IllegalStateException();
+        }
         return (String) value;
     }
 
     /**
      *Returns the stored value as null.
      * @return null.
+     * @throws IllegalStateException if the stored value is not null.
      */
     public Object getNull(){
+        if (!isNull()){
+            throw new IllegalStateException();
+        }
         return null;
     }
 
