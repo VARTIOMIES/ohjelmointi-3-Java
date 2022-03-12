@@ -250,7 +250,7 @@ public class Standings {
          * Returns the name of the team.
          * @return the name of the team.
          */
-        String getName(){
+        public String getName(){
             return teamName;
         }
 
@@ -258,7 +258,7 @@ public class Standings {
          * Returns the number of wins of the team.
          * @return the number of wins of the team.
          */
-        int getWins(){
+        public int getWins(){
             return wins;
         }
 
@@ -266,7 +266,7 @@ public class Standings {
          * Returns the number of ties of the team.
          * @return the number of ties of the team.
          */
-        int getTies(){
+        public int getTies(){
             return ties;
         }
 
@@ -274,7 +274,7 @@ public class Standings {
          * Returns the number of losses of the team.
          * @return the number of losses of the team.
          */
-        int getLosses(){
+        public int getLosses(){
             return losses;
         }
 
@@ -282,7 +282,7 @@ public class Standings {
          * Returns the number of goals scored by the team.
          * @return the number of goals scored by the team.
          */
-        int getScored(){
+        public int getScored(){
             return scored;
         }
 
@@ -290,7 +290,7 @@ public class Standings {
          * Returns the number of goals allowed (conceded) by the team.
          * @return the number of goals allowed (conceded) by the team.
          */
-        int getAllowed(){
+        public int getAllowed(){
             return allowed;
         }
 
@@ -298,14 +298,14 @@ public class Standings {
          * Returns the overall number of points of the team.
          * @return the overall number of points of the team.
          */
-        int getPoints(){
+        public int getPoints(){
             return points;
         }
 
         /**
          * @hidden
          */
-        int getGames(){
+        public int getGames(){
             return gamesPlayed;
         }
         
