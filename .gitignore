@@ -4,3 +4,5 @@ out/
 *target/
 *.txt
 *.me
+/Round10/javadocjson/owndocs/
+/Round10/javadocstandings/owndocs/
