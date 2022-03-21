@@ -74,13 +74,17 @@ public class AttainmentTest {
     static Stream<Arguments> argumentProvider(){
         return Stream.of(
                 arguments("MATH.app.1001","123456789",5),
-                arguments("TIE-898","1002H",3)
+                arguments("TIE-898","1002H",3),
+                arguments("PERUNA","123456789",2)
         );
     }
     static Stream<Arguments> argumentListProvider(){
         return Stream.of(
-                arguments(new String[]{"MATH","SCIENCE","English","ruski","sos"},
-                        new String[]{"Meitsi","pekka","h12345","666","7712H21"},
+                arguments(new String[]{"MATH","SCIENCE","English","ruski","aos"},
+                        new String[]{"Meitsi","pekka","h12345","666","pekka"},
+                        new int[]{1,2,3,4,5}),
+                arguments(new String[]{"MATH","SCIENCE","English","ruski","aos"},
+                        new String[]{"pekka","pekka","pekka","pekka","pekka"},
                         new int[]{1,2,3,4,5})
         );
     }
