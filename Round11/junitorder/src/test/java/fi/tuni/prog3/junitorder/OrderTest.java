@@ -118,10 +118,10 @@ public class OrderTest {
 
     @Test
     public void testEquals(){
-        Order.Item item1 = new Order.Item("Peruna",2);
-        Order.Item item2 = new Order.Item("Peruna",1);
+        Order.Item item1 = new Order.Item("Peruna",2.0);
+        Order.Item item2 = new Order.Item("Peruna",1.0);
 
-        assertEquals(item1, item2);
+        //assertEquals(item1, item2);
         assertTrue(item1.equals(item2));
 
     }
@@ -131,7 +131,7 @@ public class OrderTest {
         Order.Item item = new Order.Item("Peruna",2.1);
         Order.Entry entry = new Order.Entry(item,2);
 
-        assertEquals("Item(Peruna,2.10",item.toString());
+        assertEquals("Item(Peruna,2.10)",item.toString());
         assertEquals("2 units of Peruna",entry.toString());
 
     }
