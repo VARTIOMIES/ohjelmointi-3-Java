@@ -65,7 +65,7 @@ public class OrderTest {
         order.addItems(item1,3);
         order.addItems(item2,2);
         order.addItems(item3,1);
-        order.addItems(item4,2);
+        //order.addItems(item4,2);
 
         Order.Entry entry1 = new Order.Entry(item1,3);
         Order.Entry entry2 = new Order.Entry(item2,2);
@@ -77,7 +77,7 @@ public class OrderTest {
         expectedList.add(entry3);
         expectedList.add(entry4);
 
-        assertTrue(expectedList.containsAll(order.getEntries()));
+        assertEquals(expectedList, order.getEntries());
     }
 
     @Test
