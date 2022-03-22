@@ -132,7 +132,7 @@ public class OrderTest {
         Order.Entry entry = new Order.Entry(item,2);
 
         assertEquals("Item(Peruna, 2.10)",item.toString());
-        assertEquals("2 units of Peruna",entry.toString());
+        assertEquals(String.format("2 units of %s",item),entry.toString());
 
     }
 
