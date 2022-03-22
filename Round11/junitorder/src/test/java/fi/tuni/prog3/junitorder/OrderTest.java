@@ -95,7 +95,7 @@ public class OrderTest {
         order.addItems(item1,5);
 
         order.removeItems("peruna",3);
-        assertEquals(3, order.getItemCount());
+        assertEquals(2, order.getItemCount());
 
         order.removeItems("peruna",2);
         assertTrue(order.isEmpty());
@@ -131,7 +131,7 @@ public class OrderTest {
         Order.Item item = new Order.Item("Peruna",2.1);
         Order.Entry entry = new Order.Entry(item,2);
 
-        assertEquals("Item(Peruna,2.10)",item.toString());
+        assertEquals("Item(Peruna, 2.10)",item.toString());
         assertEquals("2 units of Peruna",entry.toString());
 
     }
