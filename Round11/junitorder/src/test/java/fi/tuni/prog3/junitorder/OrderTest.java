@@ -4,6 +4,8 @@ package fi.tuni.prog3.junitorder;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -48,6 +50,50 @@ public class OrderTest {
         assertEquals(order.getEntryCount(),order.getEntryCount());
         assertEquals(order.getItemCount(),order.getItemCount());
     }
+
+    @Test
+    public void testGetEntries(){
+        Order order = new Order();
+
+        List<Order.Entry> expectedList = new ArrayList<>();
+
+        Order.Item item1 = new Order.Item("Peruna",2.4);
+        Order.Item item2 = new Order.Item("Porkkana",3.5);
+        Order.Item item3 = new Order.Item("Päärynä",1.1);
+        Order.Item item4 = new Order.Item("Jooseppi",200.0);
+
+        order.addItems(item1,3);
+        order.addItems(item2,2);
+        order.addItems(item3,1);
+        order.addItems(item4,2);
+
+        Order.Entry entry1 = new Order.Entry(item1,3);
+        Order.Entry entry2 = new Order.Entry(item2,2);
+        Order.Entry entry3 = new Order.Entry(item3,1);
+        Order.Entry entry4 = new Order.Entry(item4,2);
+
+        expectedList.add(entry1);
+        expectedList.add(entry2);
+        expectedList.add(entry3);
+        expectedList.add(entry4);
+
+        assertEquals(expectedList,order.getEntries());
+    }
+
+    @Test
+    public void testCounterMethodsCalculations(){
+
+        Order order = new Order();
+        Order.Item item1 = new Order.Item("Peruna",2.4);
+        Order.Item item2 = new Order.Item("Porkkana",3.5);
+
+        order.addItems(item1,3);
+        order.addItems(item2,6);
+        assertEquals(9,order.getItemCount());
+        assertEquals(2,order.getEntryCount());
+
+    }
+
 
     @Test
     public void testPricing(){
