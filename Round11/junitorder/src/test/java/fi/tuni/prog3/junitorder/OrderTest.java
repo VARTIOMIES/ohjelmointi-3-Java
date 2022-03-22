@@ -77,7 +77,7 @@ public class OrderTest {
         expectedList.add(entry3);
         expectedList.add(entry4);
 
-        assertEquals(expectedList,order.getEntries());
+        assertTrue(expectedList.equals(order.getEntries()));
     }
 
     @Test
