@@ -89,6 +89,20 @@ public class OrderTest {
         }
 
         assertEquals(test1,test2);
+
+        // Testing the getEntries Note: "the list is a copy" -------------
+        ArrayList<String> test3 = new ArrayList<>();
+        Order.Item item5 = new Order.Item("Kakka",5.5);
+        Order.Entry entry5 = new Order.Entry(item5,1);
+
+        order.getEntries().add(entry5);
+
+        for (Order.Entry entry:
+                order.getEntries()) {
+            test3.add(entry.getItemName());
+        }
+
+        assertEquals(test1,test3);
     }
 
     @Test
