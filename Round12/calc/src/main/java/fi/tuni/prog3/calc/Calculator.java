@@ -1,6 +1,7 @@
 package fi.tuni.prog3.calc;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -45,13 +46,15 @@ public class Calculator extends Application{
         // Putting all elements in wanted order in ui
 
         grid.add(labelOp1,0,0);
-        grid.add(fieldOp1,0,2);
-        grid.add(labelOp2,1,0);
-        grid.add(fieldOp2,1,2);
-        grid.add(btnAdd,2,0);
-        grid.add(btnSub,2,1);
+        grid.add(fieldOp1,2,0);
+        grid.add(labelOp2,0,1);
+        grid.add(fieldOp2,2,1);
+        grid.add(btnAdd,0,2);
+        grid.add(btnSub,1,2);
         grid.add(btnMul,2,2);
-        grid.add(btnDiv,2,3);
+        grid.add(btnDiv,3,2);
+        grid.add(labelRes,0,3);
+        grid.add(fieldRes,2,3);
 
         // All actions for the buttons
         btnAdd.setOnAction(actionEvent -> {
@@ -82,15 +85,17 @@ public class Calculator extends Application{
             fieldRes.setText(String.format("%.2f",result));
         });
 
-        stage.show();
 
+        stage.setOnCloseRequest((event) -> { Platform.exit();});
+
+        stage.show();
 
 
     }
 
-
     public static void main(String[] args){
+        //Application app = new Calculator(new Stage());
+        launch();
 
-        launch(args);
     }
 }
