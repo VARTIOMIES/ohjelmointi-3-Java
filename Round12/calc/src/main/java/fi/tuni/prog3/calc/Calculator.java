@@ -29,18 +29,28 @@ public class Calculator extends Application{
 
         // All needed elements for the scene
         TextField fieldOp1 = new TextField();
+        fieldOp1.setId("fieldOp1");
         TextField fieldOp2 = new TextField();
+        fieldOp2.setId("fieldOp2");
 
         final Label labelOp1 = new Label("First operand");
+        labelOp1.setId("labelOp1");
         final Label labelOp2 = new Label("Second operand");
+        labelOp2.setId("labelOp2");
 
         Button btnAdd = new Button("Add");
+        btnAdd.setId("btnAdd");
         Button btnSub = new Button("Subtract");
+        btnSub.setId("btnSub");
         Button btnMul = new Button("Multiply");
+        btnMul.setId("btnMul");
         Button btnDiv = new Button("Divide");
+        btnDiv.setId("btnDiv");
 
         final Label labelRes = new Label("Result:");
+        labelRes.setId("labelRes");
         TextField fieldRes = new TextField("");
+        fieldRes.setId("fieldRes");
         fieldRes.setBackground(new Background(new BackgroundFill(Color.WHITE,new CornerRadii(1.0),new Insets(1.0))));
 
         // Putting all elements in wanted order in ui
