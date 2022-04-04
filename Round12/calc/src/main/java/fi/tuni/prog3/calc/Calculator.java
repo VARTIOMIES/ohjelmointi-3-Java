@@ -49,7 +49,7 @@ public class Calculator extends Application{
 
         final Label labelRes = new Label("Result:");
         labelRes.setId("labelRes");
-        TextField fieldRes = new TextField("");
+        Label fieldRes = new Label();
         fieldRes.setId("fieldRes");
         fieldRes.setBackground(new Background(new BackgroundFill(Color.WHITE,new CornerRadii(1.0),new Insets(1.0))));
 
