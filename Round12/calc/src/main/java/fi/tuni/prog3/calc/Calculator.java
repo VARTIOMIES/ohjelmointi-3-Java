@@ -33,9 +33,9 @@ public class Calculator extends Application{
         TextField fieldOp2 = new TextField();
         fieldOp2.setId("fieldOp2");
 
-        final Label labelOp1 = new Label("First operand");
+        final Label labelOp1 = new Label("First operand:");
         labelOp1.setId("labelOp1");
-        final Label labelOp2 = new Label("Second operand");
+        final Label labelOp2 = new Label("Second operand:");
         labelOp2.setId("labelOp2");
 
         Button btnAdd = new Button("Add");
